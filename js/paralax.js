@@ -1,33 +1,33 @@
 jQuery(function($) {
-    function paralax(value) {
+    function paralax(v1, v2 = v1) {
 		var $el = $('.parallax-background');
 		$(window).on('scroll', function () {
 			var scroll = $(document).scrollTop();
 			$el.css({
-				'background-position':'50% '+(value*scroll)+'px'
+				'background-position':'50% '+(v1*scroll)+'px'
 			});
 		});
 		var $el2 = $('.parallax-shadow');
 		$(window).on('scroll', function () {
 			var scroll = $(document).scrollTop();
 			$el2.css({
-				'background-position':'50% '+(-1*value*scroll)+'px'
+				'background-position':'50% '+(v2*scroll)+'px'
 			});
 		});
 	}
-	
+
 	$(window).resize(function() {
 	  if ($(window).width() < 992) {
-			paralax(-.12);
+			paralax(.2);
 	  }
 	 else {
-		paralax(-.5);
+		paralax(-.7, .7);
 	 }
 	});
 	  if ($(window).width() < 992) {
-			paralax(-.12);
+			paralax(.2);
 	  }
 	 else {
-		paralax(-.5);
+		paralax(-.7, .7);
 	 }
 });
