@@ -1,6 +1,6 @@
 </php
 /**
-* Template Name: Про нас
+* Template Name: ЖК
 */
 ?>
 <?php get_header();

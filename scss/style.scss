@@ -82,6 +82,21 @@ a {
 h1,  h2, h3, h4, h5, h6 {
 	margin-bottom: 0;
 }
+button {
+	padding: d(25px) d(40px);
+	margin: d(25px) 0;
+	text-transform: uppercase;
+	font-size: d(16px);
+	@include mobileonly() {
+		padding: m(10px) m(30px);
+		margin: m(15px) 0;
+		font-size: m(12px);
+	}
+	&.dark {
+		background: #3D3C42;
+		color: #fff;
+	}
+}
 /*header*/
 /*body.admin-bar header {
 	margin-top: 32px;
@@ -95,6 +110,10 @@ header {
 	background-size: cover;
 	background-position: center;
 	font-family: Roboto Slab;
+	.bg-dot {
+		background: url(../images/dot-texture.svg);
+		background-size: 3px;
+	}
 	.header-content  {
 		height: 100vh;
 		display: flex;
@@ -272,16 +291,22 @@ header {
 // Section - Awards
 section.awards {
 	.owl-awards {
-		padding: d(90px) d(75px);
-		background: #969599;
+		padding: d(60px) d(75px);
+		background:  #969599;
 		@include mobileonly() {
-			padding: m(24px) m(26px);
+			padding: m(9px) m(26px);
 		}
 		.owl-item {
 			transition: $transition;
 			opacity: 0;
 			&.active {
 				opacity: 1;
+			}
+		}
+		.owl-stage {
+			padding: d(30px) 0;
+			@include mobileonly() {
+				padding: m(15px) 0;
 			}
 		}
 		.item {
@@ -291,6 +316,16 @@ section.awards {
 			}
 			img {
 				width: 100%;
+				transition: $transition;
+				background: #fff;
+				&:hover{
+					margin-top: d(-15px);
+					box-shadow: 0px d(10px) d(15px) rgba(0, 0, 0, 0.25);
+					@include mobileonly() {
+						margin-top: m(-5px);
+						box-shadow: 0px m(1px) m(4px) rgba(0, 0, 0, 0.25);
+					}
+				}
 			}
 		}
 		.owl-nav {
@@ -315,6 +350,114 @@ section.awards {
 				&.owl-next {
 					left: auto;
 					right: 0;
+				}
+			}
+		}
+	}
+}
+//projects - residentials
+section.projects {
+	display: flex;
+	flex-wrap: wrap;
+	.left {
+		width: 53%;
+		background-color: #3D3C42;
+		background-image: url(../images/bg-lines.png), url(../images/bg-lines.png);
+		background-repeat: repeat-y;
+		background-position: 5.7% 0, 95% 0;
+		background-size: d(90px) 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: d(30px) 0;
+		@include mobileonly() {
+			background-image: url(../images/bg-lines-h.png);
+			background-repeat: repeat-x;
+			background-position: left top;
+			background-size: 10%;
+			padding: m(10px) 0 0 0;
+		}
+		img {
+			width: d(615px);
+			@include mobileonly() {
+				width: 100%;
+			}
+		}
+		&:first-of-type {
+			padding: d(60px) 0 d(30px) 0;
+			@include mobileonly() {
+				padding: m(10px) 0 0 0;
+			}
+		}
+		&:nth-last-of-type(2) {
+			padding: d(30px) 0 d(60px) 0;
+			@include mobileonly() {
+				padding: m(10px) 0 0 0;
+			}
+		}
+		@include mobileonly() {
+			width: 100%;
+		}
+	}
+	.right {
+		width: 47%;
+		padding: d(125px);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@include mobileonly() {
+			padding: m(30px);
+			width: 100%;
+		}
+		.block {
+			padding-left: d(100px);
+			@include mobileonly() {
+				padding-left: m(15px);
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				li {
+					list-style: none;
+					font-size: d(21px);
+					line-height: d(42px);
+					text-transform: uppercase;
+					font-weight: 500;
+					font-family: Roboto Slab;
+					@include mobileonly() {
+						font-size: m(12px);
+						line-height: m(21px);
+					}
+				}
+			}	
+			.title {
+				font-family: 'Roboto', sans-serif;
+				position: relative;
+				text-transform: uppercase;
+				font-size: d(42px);
+				line-height: d(42px);
+				margin-bottom: d(50px);
+				@include mobileonly() {
+					font-size: m(21px);
+					line-height: m(15px);
+					margin-bottom: m(15px);
+				}
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+					width: d(35px);
+					height: d(35px);
+					background: #3D3C42;
+					margin-left: d(-100px);
+					transform: rotate(45deg);
+					@include mobileonly() {
+						width: m(15px);
+						height: m(15px);
+						margin-left: m(-30px);
+					}
 				}
 			}
 		}

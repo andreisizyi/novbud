@@ -24,6 +24,7 @@
 </head>
 <body <?php body_class() ?>>
 	<header class="parallax-background">
+		<div class="bg-dot">
 		<div class="header-content parallax-shadow">
 			<div class="header-block-1">
 				<?php if (!is_front_page()): ?><a href="/"><?php endif; ?>
@@ -59,6 +60,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</header>
 	<main>

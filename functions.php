@@ -12,6 +12,9 @@ register_nav_menus( array(
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(300, 300);
 add_image_size('awards', 351, 510, true);
+add_image_size('residential', 700, 550, true);
+add_image_size('flat', 500, 500, false);
+add_image_size('news', 1920, 1080, false);
 
 function true_remove_default_image_sizes( $sizes ) {
 	unset( $sizes['thumbnail']);
@@ -21,6 +24,12 @@ function true_remove_default_image_sizes( $sizes ) {
 }
  
 add_filter('intermediate_image_sizes_advanced', 'true_remove_default_image_sizes');
+
+function true_custom_fields() {
+	add_post_type_support( 'book', 'custom-fields'); // в качестве первого параметра укажите название типа поста
+}
+ 
+add_action('init', 'true_custom_fields');
 
 if (!function_exists('pagination')) {
 	function pagination() {

@@ -23,6 +23,39 @@ endif;
 		</div>
 	<?php endif; ?>		
 </section>
+<section class="projects">
+	<?php
+		$posts = get_posts( array(
+			'post_type'  => 'page', 
+			'orderby' => 'publish_date',
+			'order' => 'ASC',
+			'meta_query' => array( 
+				array(
+					'key'   => '_wp_page_template', 
+					'value' => 'parts/page-residential.php'
+				)
+			)
+		) );
+		foreach( $posts as $post ){
+			setup_postdata($post);
+	?>
+		<div class="left">
+			<a href="<?php echo get_post_permalink(); ?>">
+				<?php the_post_thumbnail('residential'); ?>
+			</a>
+		</div>
+		<div class="right">
+			<div class="block">
+				<a href="<?php echo get_post_permalink(); ?>"><h2 class="title"><?php the_title(); ?></h2></a>
+				<?php echo get_field('short'); ?>
+				<a href="<?php echo get_post_permalink(); ?>"><button class="dark">Подробнее</button></a>
+			</div>
+		</div>	
+	<?php	
+		}
+		wp_reset_postdata(); // сброс
+	?>
+</section>
 
 <?php
 wp_enqueue_script('paralax', get_stylesheet_directory_uri() .'/js/paralax.js');
