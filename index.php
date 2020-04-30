@@ -65,10 +65,5 @@ wp_enqueue_script('owl.init', get_stylesheet_directory_uri() .'/js/owl.init.js',
 wp_enqueue_script('fancybox', get_stylesheet_directory_uri() .'/js/jquery.fancybox.min.js');
 wp_enqueue_style( 'fancybox', get_template_directory_uri().'/css/jquery.fancybox.min.css' );
 get_footer(); ?>
-<script>
-	jQuery('').fancybox({
-		
-	});
-</script>
 <?php get_footer(); ?>
 
